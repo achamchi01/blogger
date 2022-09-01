@@ -7,11 +7,7 @@ app.set("view engine", "ejs");
 app.listen("3000");
 
 
-app.use((req, res, next) => {
-    console.log(req.hostname);
-    console.log(req.path);
-    next()
-  });
+app.use(express.static("public"));
   
 
 app.get("/", (req, res) => {
