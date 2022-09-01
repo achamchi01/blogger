@@ -6,6 +6,14 @@ app.set("view engine", "ejs");
 
 app.listen("3000");
 
+
+app.use((req, res, next) => {
+    console.log(req.hostname);
+    console.log(req.path);
+    next()
+  });
+  
+
 app.get("/", (req, res) => {
     const blogs = [
     ]
@@ -25,5 +33,5 @@ app.get("/blogs/create", (req, res) => {
 });
 
 app.use((req, res) => {
-  res.status(404).render("404");
+  res.status(404).render("404", {title: "404"});
 });
